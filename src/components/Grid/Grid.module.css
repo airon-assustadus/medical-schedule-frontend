@@ -1,0 +1,16 @@
+
+.grid {
+    @apply flex flex-col w-full
+}
+
+.grid-header {
+    @apply w-full flex flex-row pb-1
+}
+
+.grid-line {
+    @apply w-full flex flex-row border-t border-t-primary-dark py-2 hover:bg-primary
+}
+
+.grid-line-cell {
+    @apply flex items-center
+}

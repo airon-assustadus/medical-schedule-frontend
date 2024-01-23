@@ -1,0 +1,7 @@
+.checkbox-checked {
+    @apply w-5 h-5
+}
+
+.checkbox-unchecked {
+    @apply w-5 h-5 border-primary-dark hover:bg-primary border rounded-md
+}

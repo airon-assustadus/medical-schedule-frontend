@@ -1,0 +1,15 @@
+.input-text {
+    @apply px-3 outline-none w-full
+}
+
+.input-text div {
+    @apply w-full
+}
+
+.input-text input {
+    @apply border-b border-b-primary-dark outline-none w-full
+}
+
+.input-text div:has(input:focus) {
+    @apply outline-none border-b border-b-primary-dark border-b-2
+}
