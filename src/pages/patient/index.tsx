@@ -1,13 +1,13 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { PrimaryButton } from "src/components/Button/PrimaryButton";
+import { SearchIconButton } from "src/components/Button/SearchIconButton";
 import { ContainerBordered } from "src/components/Container/Bordered";
 import { Grid } from "src/components/Grid/Grid";
 import { InputText } from "src/components/Input/Text";
-import { useAppContext } from "src/components/app.provider";
+import { SearchBar } from "src/components/SearchBar/SearchBar";
 import { PatientModel } from "src/models/Patient.model";
-import { AppContextActionEnum } from "src/types/context.types";
 import { GridColumnType, GridType } from "src/types/grid.types";
 
 
@@ -75,8 +75,6 @@ const Patient: NextPage = () => {
     const [searchText, setSearchText] = useState('');
     const [patients, setPatients] = useState<PatientModel[]>(patientsList);
 
-    const { state, dispatch } = useAppContext()
-
     const onEditClick = (value: any) => {
         console.log('Editing item', value)
     }
@@ -90,6 +88,7 @@ const Patient: NextPage = () => {
     }
 
     const onNewClick = () => {
+        console.log('clicked on new button')
         router.push('/patient/new')
     }
 
@@ -102,34 +101,15 @@ const Patient: NextPage = () => {
         noDataMessage
     })
 
-    useEffect(() => {
-        return dispatch && dispatch({
-            type: AppContextActionEnum.PAGE_TITLE,
-            value: 'Patients'
-        })
-    }, [state.header.pageTitle])
-
-    const doSearch = () => {
-        setSearchText('searched')
+    const doSearch = (text:string) => {
+        console.log('searching for', text)
     }
 
     return (
         <div className="w-full px-3">
             <div className="title py-3">Patients</div>
 
-            <ContainerBordered>
-                <div className="flex flex-row justify-start items-center w-2/3">
-                    <span className="p-3">Text</span>
-                    <InputText
-                        value={searchText}
-                        onChange={(value) => setSearchText(value)}
-                    />
-                    <PrimaryButton label="Search" onClick={doSearch} />
-                </div>
-                <div className="flex flex-row justify-end items-center w-1/3 pr-3">
-                    <PrimaryButton label="New" onClick={onNewClick} />
-                </div>
-            </ContainerBordered>
+            <SearchBar onClickNewButton={onNewClick} onClickSearchButton={doSearch}/>
             <Grid {...gridType} className="mt-2" />
 
         </div>

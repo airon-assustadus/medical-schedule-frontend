@@ -1,10 +1,9 @@
-import Link from "next/link"
 import cn from 'clsx';
 import { MenuItemProps } from "src/types/menu.types";
 
 export function MenuItem(props: MenuItemProps) {
     return (
-        <Link href={props.to}
+        <span onClick={() => props.onClick && props.onClick(props)}
             className={
                 cn('p-3 pl-1 hover:bg-primary-dark hover:text-primary-dark-text',
                     {
@@ -15,6 +14,6 @@ export function MenuItem(props: MenuItemProps) {
                     })
             }>
             {props.label}
-        </Link>
+        </span>
     )
 }

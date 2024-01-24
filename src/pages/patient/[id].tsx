@@ -1,7 +1,10 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { CancelIconButton } from "src/components/Button/CancelIconButton";
 import { PrimaryButton } from "src/components/Button/PrimaryButton";
+import { PrimaryDarkButton } from "src/components/Button/PrimaryDarkButton";
+import { SaveIconButton } from "src/components/Button/SaveIconButton";
 import { ContainerBordered } from "src/components/Container/Bordered";
 import { Checkbox } from "src/components/Input/Checkbox";
 import { InputText } from "src/components/Input/Text";
@@ -24,8 +27,11 @@ const Patient: NextPage = () => {
 
     useEffect(() => {
         return dispatchContext && dispatchContext({
-            type: AppContextActionEnum.PAGE_TITLE,
-            value: 'Patients'
+            type: AppContextActionEnum.PAGE_TITLE_AND_MENU,
+            value: {
+                to: '/patient',
+                pageTitle: isNaN(Number(id)) ? 'New Patient' : 'Changing Patient'
+            }
         })
     }, [context.header.pageTitle])
 
@@ -58,10 +64,10 @@ const Patient: NextPage = () => {
             </div>
             <ContainerBordered className="px-2">
                 <div className="flex flex-row justify-start items-center w-1/2">
-                    <PrimaryButton label="Save" onClick={saveClick} />
+                    <SaveIconButton onClick={saveClick}/>
                 </div>
                 <div className="flex flex-row justify-end items-center w-1/2">
-                    <PrimaryButton label="Cancel" onClick={cancelClick} />
+                    <CancelIconButton onClick={cancelClick}/>
                 </div>
             </ContainerBordered>
 

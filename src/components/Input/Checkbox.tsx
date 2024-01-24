@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { CheckboxProps } from "src/types/input.types";
 import styles from './Checkbox.module.css'
 import Icon from "@mdi/react";

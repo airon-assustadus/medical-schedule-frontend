@@ -1,7 +1,10 @@
+import { IconProps } from "./icon.types"
 
 export type PrimaryButtonProps = {
-    label?: string,
-    onClick: Function,
+    onClick: () => void,
     children?: any,
-    className?: string
+    className?: string,
+    icon?: IconProps,
+    hideIcon?: boolean,
+    hideText?: boolean
 }

@@ -43,27 +43,3 @@ export const defaultMenus: MenuItemProps[] = [
         to: '/DoctorAppointments'
     }
 ]
-
-export const menuReducer = (state: MenuReducerState, action: DefaultAction): MenuReducerState => {
-    if (!action || !action.type) {
-        throw Error('Unknown action.')
-    }
-    switch(action.type) {
-        case 'active' : {
-            const list = state.menus.map(
-                menu => {
-                    return {
-                        ...menu,
-                        isSelected: menu.to === action.args
-                    }
-                }
-            )
-            return {
-                menus: list
-            }
-        }
-        default: {
-            throw Error('Unknown action.')
-        }
-    }
-}

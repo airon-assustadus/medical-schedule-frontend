@@ -1,0 +1,11 @@
+.header {
+    @apply flex flex-row justify-start bg-primary-dark text-primary-dark-text px-1 py-3
+}
+
+.menu-icon-slot {
+    @apply flex justify-center items-center w-9 md:hidden cursor-pointer
+}
+
+.title-bar {
+    @apply flex flex-col justify-start items-start pl-1 w-full
+}

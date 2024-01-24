@@ -1,0 +1,42 @@
+.button {
+    @apply 
+    border 
+    rounded-3xl
+    hover:cursor-pointer
+    justify-center
+    flex
+    py-1
+    px-5
+}
+
+.button-primary {
+    @apply 
+    border-primary-dark
+    hover:border-primary
+    bg-primary
+    hover:bg-primary-dark
+    text-primary-text
+    hover:text-primary-dark-text
+}
+
+.button-primary-dark {
+    @apply 
+    border-primary
+    hover:border-primary-dark
+    bg-primary-dark
+    hover:bg-primary
+    text-primary-dark-text
+    hover:text-primary-text
+}
+
+.button:has(.button-icon) .button-label {
+    @apply pl-2
+}
+
+.button:has(.button-icon):has(.button-label) {
+    @apply px-4
+}
+
+.button:not(:has(.button-label)) {
+    @apply px-2
+}
