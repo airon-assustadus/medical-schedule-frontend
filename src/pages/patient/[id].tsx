@@ -23,19 +23,16 @@ const Patient: NextPage = () => {
 
     const [active, setActive] = useState<boolean>(true)
 
-    const { state: context, dispatch: dispatchContext } = useAppContext()
+    const { dispatch: dispatchContext } = useAppContext()
 
-    useEffect(() => {
-        return dispatchContext && dispatchContext({
+    const cancelClick = () => {
+        dispatchContext && dispatchContext({
             type: AppContextActionEnum.PAGE_TITLE_AND_MENU,
             value: {
                 to: '/patient',
-                pageTitle: isNaN(Number(id)) ? 'New Patient' : 'Changing Patient'
+                pageTitle: 'Patients'
             }
         })
-    }, [context.header.pageTitle])
-
-    const cancelClick = () => {
         router.push('/patient')
     }
 

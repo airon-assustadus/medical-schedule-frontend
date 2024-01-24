@@ -1,13 +1,11 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { PrimaryButton } from "src/components/Button/PrimaryButton";
-import { SearchIconButton } from "src/components/Button/SearchIconButton";
-import { ContainerBordered } from "src/components/Container/Bordered";
 import { Grid } from "src/components/Grid/Grid";
-import { InputText } from "src/components/Input/Text";
 import { SearchBar } from "src/components/SearchBar/SearchBar";
+import { useAppContext } from "src/components/app.provider";
 import { PatientModel } from "src/models/Patient.model";
+import { AppContextActionEnum } from "src/types/context.types";
 import { GridColumnType, GridType } from "src/types/grid.types";
 
 
@@ -75,6 +73,8 @@ const Patient: NextPage = () => {
     const [searchText, setSearchText] = useState('');
     const [patients, setPatients] = useState<PatientModel[]>(patientsList);
 
+    const { dispatch: dispatchContext } = useAppContext()
+
     const onEditClick = (value: any) => {
         console.log('Editing item', value)
     }
@@ -89,6 +89,13 @@ const Patient: NextPage = () => {
 
     const onNewClick = () => {
         console.log('clicked on new button')
+        dispatchContext && dispatchContext({
+            type: AppContextActionEnum.PAGE_TITLE_AND_MENU,
+            value: {
+                to: '/patient',
+                pageTitle: 'New Patient'
+            }
+        })
         router.push('/patient/new')
     }
 

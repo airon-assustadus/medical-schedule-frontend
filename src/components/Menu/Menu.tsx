@@ -12,7 +12,6 @@ export function Menu () {
     const {push} = useRouter()
 
     const onClickMenu = (menu:MenuItemProps) => {
-        push(menu.to)
         dispatch && dispatch({
             type: AppContextActionEnum.PAGE_TITLE_AND_MENU,
             value: {
@@ -20,6 +19,7 @@ export function Menu () {
                 to: menu.to
             }
         })
+        push(menu.to)
     }
 
     return (

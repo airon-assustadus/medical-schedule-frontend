@@ -24,6 +24,7 @@ const appReducer = (state: AppContext, action: AppContextAction): AppContext => 
     switch (action.type) {
         case AppContextActionEnum.PAGE_TITLE_AND_MENU: {
             const newState = { ...state };
+            console.log('changing the title', action.value)
             newState.header.pageTitle = action.value.pageTitle;
 
             newState.menu.menus = 
