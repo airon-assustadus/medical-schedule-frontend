@@ -1,9 +1,7 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { CancelIconButton } from "src/components/Button/CancelIconButton";
-import { PrimaryButton } from "src/components/Button/PrimaryButton";
-import { PrimaryDarkButton } from "src/components/Button/PrimaryDarkButton";
 import { SaveIconButton } from "src/components/Button/SaveIconButton";
 import { ContainerBordered } from "src/components/Container/Bordered";
 import { Checkbox } from "src/components/Input/Checkbox";
