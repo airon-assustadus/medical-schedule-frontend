@@ -2,4 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body {
+    @apply h-full
+}
+
+body > div {
+    @apply h-full flex flex-col
+}
+
+.app-content {
+    @apply flex
+    flex-row
+    justify-start
+    h-full
+    w-full
+    mt-1
+    overflow-scroll
+}
+
 @import url(../components/Button/Button.module.css);
+@import url(../components/Container/Page.module.css);
+@import url(../components/Grid/Grid.module.css);
+@import url(../components/Header/Header.module.css);
+@import url(../components/Input/Checkbox.module.css);
+@import url(../components/Input/Text.module.css);

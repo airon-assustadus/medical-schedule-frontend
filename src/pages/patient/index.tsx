@@ -31,32 +31,32 @@ const patientColumns: GridColumnType[] = [
     {
         header: {
             name: '#',
-            className: 'w-10 pl-2'
+            className: 'sm:w-10 sm:pl-2'
         },
         item: {
             field: 'id',
-            className: 'w-10 justify-center'
+            className: 'sm:w-10 sm:justify-center'
         }
     },
     {
         header: {
             name: 'Name',
-            className: 'w-full'
+            className: 'sm:w-full'
         },
         item: {
             field: 'name',
-            className: 'w-full'
+            className: 'sm:w-full'
         }
     },
     {
         header: {
             name: 'Active',
             type: 'boolean',
-            className: 'w-24'
+            className: 'sm:w-24'
         },
         item: {
             field: 'active',
-            className: 'justify-center w-24'
+            className: 'sm:justify-center sm:w-24'
         }
     },
     {
@@ -113,12 +113,13 @@ const Patient: NextPage = () => {
     }
 
     return (
-        <div className="w-full px-3">
+        <div className="w-full px-3 entity-list">
             <div className="title py-3">Patients</div>
 
             <SearchBar onClickNewButton={onNewClick} onClickSearchButton={doSearch}/>
-            <Grid {...gridType} className="mt-2" />
-
+            <div className="entity-list-content">
+                <Grid {...gridType} className="sm:mt-2" />
+            </div>
         </div>
     );
 }

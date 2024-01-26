@@ -16,13 +16,7 @@ function AppContent({ Component, pageProps }: AppProps) {
   return (
     <>
       <Header />
-      <section className="
-          flex
-          flex-row
-          justify-start
-          h-full
-          w-full
-          mt-1">
+      <section className="app-content">
         <Menu />
         {content}
       </section>

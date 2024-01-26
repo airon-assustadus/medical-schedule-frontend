@@ -27,7 +27,7 @@ export type GridItemsType = {
 
 export type GridType = {
     items?: any[]
-    columns?: GridColumnType[]
+    columns: GridColumnType[]
     onEditClick?: (value:any) => void
     onDeleteClick?: (value:any) => void
     onRowClick?: (value:any, index:number) => void
@@ -36,12 +36,10 @@ export type GridType = {
     gridHeaderClassName?: string
 }
 
-export type GridLineType = {
-    item: any
-    columns?: GridColumnType[]
+export type GridActionColumnPropsType = {
     onEditClick?: (value:any) => void
     onDeleteClick?: (value:any) => void
-    onRowClick?: (value:any, index:number) => void
+    item?: any
 }
 
 export type GridHeaderType = {

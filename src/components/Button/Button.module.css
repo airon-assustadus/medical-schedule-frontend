@@ -40,3 +40,7 @@
 .button:not(:has(.button-label)) {
     @apply px-2
 }
+
+.button-primary:hover .button-icon path{
+    @apply !fill-primary-dark-text
+}

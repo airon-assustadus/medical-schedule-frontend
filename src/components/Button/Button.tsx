@@ -1,6 +1,5 @@
-import { PrimaryButtonProps } from "src/types/button.types";
 import Icon from "@mdi/react";
-import { fullTailwindConfig } from "../app.provider";
+import { PrimaryButtonProps } from "src/types/button.types";
 
 
 export const Button = (props: PrimaryButtonProps) => {
@@ -16,9 +15,17 @@ export const Button = (props: PrimaryButtonProps) => {
         && <span className="button-label">{props.children}</span>
         || undefined
     const aditionalClass = props.hideText ? 'px-1' : 'px-5'
+
+    const onClick = (e:any) => {
+        const event:Event = e as Event;
+        event.preventDefault();
+        event.stopPropagation();
+        props.onClick && props.onClick()
+    }
+
     return (
         <div
-            onClick={() => props.onClick()}
+            onClick={(e) => onClick(e)}
             className={`
                 button
                 ${aditionalClass}

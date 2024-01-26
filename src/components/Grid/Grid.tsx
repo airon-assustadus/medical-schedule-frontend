@@ -3,6 +3,8 @@ import { ContainerBordered } from "../Container/Bordered";
 import { GridHeader } from "./GridHeader";
 import { GridItems } from "./GridItems";
 import styles from './Grid.module.css'
+import { useAppContext } from "../app.provider";
+import { GridMobile } from "./GridMobile";
 
 export const Grid = (props:GridType) => {
 
@@ -12,11 +14,29 @@ export const Grid = (props:GridType) => {
         pb-0
     `
 
+    const noDataDiv = 
+        (!props.items || !props.columns)
+        &&
+        (
+            <ContainerBordered className={className}>
+                {props.noDataMessage || 'No data found'}
+            </ContainerBordered>
+        )
+        || undefined
+
+    const {state: {interface: {isMobile}}} = useAppContext();
+
     return (
-        <ContainerBordered className={className}>
+        noDataDiv || 
+        (
+            (isMobile && 
+                <GridMobile {...props} />
+            ) ||
+        <table className={className}>
             <GridHeader columns={props.columns} gridHeaderClassName={props.gridHeaderClassName}/>
             <GridItems {...props}/>
-        </ContainerBordered>
+        </table>
+        )
     )    
 
 }

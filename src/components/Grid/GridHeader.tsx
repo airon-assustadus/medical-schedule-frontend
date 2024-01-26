@@ -1,5 +1,6 @@
 import { GridHeaderType } from "src/types/grid.types";
 import styles from './Grid.module.css'
+import { useAppContext } from "../app.provider";
 
 export const GridHeader = (props:GridHeaderType) => {
     let header
@@ -15,19 +16,21 @@ export const GridHeader = (props:GridHeaderType) => {
                 `.trim()
             const headerName = column.isActionsHeader ? 'Actions' : column.header?.name
             return (
-                <div key={index}
+                <th key={index}
                     className={className} 
                     onClick={() => column.header?.onClick && column.header?.onClick(column.header)}>
                     {headerName}
-                </div>
+                </th>
             )
         })
         header = (
-            <div className={`
+            <thead className={`
                 ${styles['grid-header']}
             `}>
-                {cells}
-            </div>
+                <tr>
+                    {cells}
+                </tr>
+            </thead>
         )
     }
 

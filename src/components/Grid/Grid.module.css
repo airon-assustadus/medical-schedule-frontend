@@ -15,3 +15,29 @@
     @apply flex items-center
 }
 
+.grid-action-column-mobile {
+    @apply flex
+    flex-row
+    justify-between
+    align-middle
+    bg-primary
+    px-2
+    py-1
+    mb-1
+}
+
+.grid-mobile-item {
+    @apply border border-primary
+}
+
+.grid-mobile-line {
+    @apply flex flex-row justify-between p-1
+}
+
+.grid-mobile-line-title {
+    @apply font-bold
+}
+
+.grid-mobile-line-value {
+    @apply flex flex-row justify-end
+}
