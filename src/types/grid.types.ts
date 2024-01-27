@@ -34,9 +34,11 @@ export type GridType = {
     noDataMessage?: string
     className?: string
     gridHeaderClassName?: string
+    isLoading?: boolean
 }
 
-export type GridActionColumnPropsType = {
+
+export type GridActionColumnType = {
     onEditClick?: (value:any) => void
     onDeleteClick?: (value:any) => void
     item?: any

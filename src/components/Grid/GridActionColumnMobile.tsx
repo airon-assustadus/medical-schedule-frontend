@@ -1,8 +1,8 @@
-import { GridActionColumnPropsType } from "src/types/grid.types";
+import { GridActionColumnType } from "src/types/grid.types";
 import { EditIconButton } from "../Button/EditIconButton";
 import { DeleteIconButton } from "../Button/DeleteIconButton";
 
-export const GridActionColumnMobile = (props: GridActionColumnPropsType) => {
+export const GridActionColumnMobile = (props: GridActionColumnType) => {
 
     return (
         <div className="grid-action-column-mobile">

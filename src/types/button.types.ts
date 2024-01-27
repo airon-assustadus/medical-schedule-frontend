@@ -4,7 +4,7 @@ export type PrimaryButtonProps = {
     onClick?: () => void,
     children?: any,
     className?: string,
-    icon?: IconProps,
+    icon?: IconProps | string,
     hideIcon?: boolean,
     hideText?: boolean
 }

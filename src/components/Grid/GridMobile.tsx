@@ -2,7 +2,6 @@ import { GridType } from "src/types/grid.types";
 import { TrueFalseIcon } from "../Input/TrueFalseIcon";
 import { GridActionColumnMobile } from "./GridActionColumnMobile";
 
-
 export const GridMobile = (props: GridType) => {
     const cursorPointer = props.onRowClick ? 'cursor-pointer' : ''
 

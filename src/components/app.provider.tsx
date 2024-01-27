@@ -14,7 +14,7 @@ const defaultState: AppContext = {
         isMenuOpened: false
     },
     interface: {
-        isMobile: false
+        isMobile: true
     }
 };
 

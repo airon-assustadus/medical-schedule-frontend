@@ -5,6 +5,7 @@ import { GridItems } from "./GridItems";
 import styles from './Grid.module.css'
 import { useAppContext } from "../app.provider";
 import { GridMobile } from "./GridMobile";
+import { Loading } from "../Container/Loading";
 
 export const Grid = (props:GridType) => {
 
@@ -24,10 +25,15 @@ export const Grid = (props:GridType) => {
         )
         || undefined
 
+    const loading = props.isLoading
+    && <Loading />
+    || undefined
+
     const {state: {interface: {isMobile}}} = useAppContext();
 
     return (
         noDataDiv || 
+        loading ||
         (
             (isMobile && 
                 <GridMobile {...props} />

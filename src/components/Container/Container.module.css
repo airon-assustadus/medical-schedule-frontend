@@ -1,0 +1,117 @@
+
+.entity-list, .entity-list > .entity-list-content {
+    @apply h-full
+}
+
+.entity-list {
+    @apply flex flex-col
+}
+
+.entity-list-content {
+    @apply flex flex-col justify-start overflow-scroll mt-2
+}
+
+.container-bordered {
+    @apply
+    flex
+    flex-row
+    justify-start
+    items-center
+    pt-3
+    border-2
+    border-primary
+}
+
+.search-bar {
+    @apply flex-col
+}
+
+.search-bar-filter-bar {
+    @apply mb-2 pr-2 w-full
+}
+
+.search-bar-filter-bar-hide {
+    @apply
+    flex
+    flex-row
+    gap-2
+    justify-end
+    w-full
+    mb-2
+    pr-2
+}
+
+.search-bar-filter-bar-filters {
+    @apply 
+    flex flex-row justify-start items-center w-full
+}
+.search-bar-filter-bar-actions {
+    @apply
+    flex flex-row justify-end pt-2 items-center w-full pl-3 gap-2
+    sm:pt-2 sm:pl-2 
+}
+
+.paginator-section {
+    @apply
+    flex
+    flex-row
+    justify-between
+    sm:justify-end
+    sm:gap-5
+    w-full
+    p-3
+    bg-primary
+}
+
+.paginator {
+    @apply
+    flex
+    flex-row
+    justify-between
+    gap-1
+}
+
+.paginator-icon {
+    @apply cursor-pointer
+}
+
+.loading {
+    @apply text-primary-text
+}
+
+.skeleton {
+    background: linear-gradient(54deg, #63b77d, #eff7f1, #63b77d, #eff7f1);
+    background-size: 800% 800%;
+
+    -webkit-animation: AnimationName 1s ease infinite;
+    -moz-animation: AnimationName 1s ease infinite;
+    -o-animation: AnimationName 1s ease infinite;
+    animation: AnimationName 1s ease infinite;
+
+    @apply 
+    flex
+    justify-center
+    align-middle
+    p-3
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:34% 0%}
+    50%{background-position:67% 100%}
+    100%{background-position:34% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:34% 0%}
+    50%{background-position:67% 100%}
+    100%{background-position:34% 0%}
+}
+@-o-keyframes AnimationName {
+    0%{background-position:34% 0%}
+    50%{background-position:67% 100%}
+    100%{background-position:34% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:34% 0%}
+    50%{background-position:67% 100%}
+    100%{background-position:34% 0%}
+}

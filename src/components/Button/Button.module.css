@@ -38,7 +38,7 @@
 }
 
 .button:not(:has(.button-label)) {
-    @apply px-2
+    @apply px-1
 }
 
 .button-primary:hover .button-icon path{

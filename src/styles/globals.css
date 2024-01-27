@@ -21,7 +21,7 @@ body > div {
 }
 
 @import url(../components/Button/Button.module.css);
-@import url(../components/Container/Page.module.css);
+@import url(../components/Container/Container.module.css);
 @import url(../components/Grid/Grid.module.css);
 @import url(../components/Header/Header.module.css);
 @import url(../components/Input/Checkbox.module.css);

@@ -2,11 +2,13 @@ import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { Grid } from "src/components/Grid/Grid";
-import { SearchBar } from "src/components/SearchBar/SearchBar";
+import { SearchBar } from "src/components/Container/SearchBar";
 import { useAppContext } from "src/components/app.provider";
 import { PatientModel } from "src/models/Patient.model";
 import { AppContextActionEnum } from "src/types/context.types";
 import { GridColumnType, GridType } from "src/types/grid.types";
+import { PaginatorType } from "src/types/container.types";
+import { SearchBarClickSearchButton, SearchBarProps } from "src/types/searchbar.types";
 
 
 const patientsList: PatientModel[] = [
@@ -99,16 +101,26 @@ const Patient: NextPage = () => {
         router.push('/patient/new')
     }
 
+    const [paginator, setPaginator] = useState<PaginatorType>({
+        currentPage: 3,
+        totalPages: 5
+    })
+
     const [gridType, setGridType] = useState<GridType>({
         items: patients,
         columns: patientColumns,
         onEditClick,
         onDeleteClick,
         onRowClick,
-        noDataMessage
+        noDataMessage,
+        isLoading: false
     })
 
-    const doSearch = (text:string) => {
+    const [searchBarProps, setSearchBarProps] = useState<SearchBarProps>({
+        paginator
+    })
+
+    const doSearch = (text:SearchBarClickSearchButton) => {
         console.log('searching for', text)
     }
 
@@ -116,7 +128,7 @@ const Patient: NextPage = () => {
         <div className="w-full px-3 entity-list">
             <div className="title py-3">Patients</div>
 
-            <SearchBar onClickNewButton={onNewClick} onClickSearchButton={doSearch}/>
+            <SearchBar {...searchBarProps} onClickNewButton={onNewClick} onClickSearchButton={doSearch}/>
             <div className="entity-list-content">
                 <Grid {...gridType} className="sm:mt-2" />
             </div>
