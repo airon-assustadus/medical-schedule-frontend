@@ -11,6 +11,7 @@ export const InputText = (props: InputTextProps) => {
                     id={props.id}
                     value={props.value}
                     onChange={(e) => props.onChange && props.onChange(e.target.value)} 
+                    placeholder={props.placeholder}
                     />
             </div>
         </div>

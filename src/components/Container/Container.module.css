@@ -55,9 +55,9 @@
     @apply
     flex
     flex-row
-    justify-between
+    justify-end
     sm:justify-end
-    sm:gap-5
+    gap-3
     w-full
     p-3
     bg-primary

@@ -77,30 +77,43 @@ export const SearchBar = (props: SearchBarProps) => {
             {
             !hideFilter &&
             <div className="search-bar-filter-bar">
-                <div className="search-bar-filter-bar-filters">
-                    <InputText
-                        value={searchText}
-                        onChange={(value) => setSearchText(value)}
-                        />
-                    <SearchIconButton hideText={isMobile} onClick={() => onClickSearchButton()}>Search</SearchIconButton>
-                </div>
-                <div className="search-bar-filter-bar-actions">
-                    <NewIconButton onClick={() => props.onClickNewButton && props.onClickNewButton() } />
-                    <PrimaryButton onClick={() => setHideFilter(true) } icon={mdiMagnifyRemoveCursor} >
-                        Hide
-                    </PrimaryButton>
-                </div>
+                {
+                    props.filtersSlot || 
+                    <div className="search-bar-filter-bar-filters">
+                        <InputText
+                            value={searchText}
+                            onChange={(value) => setSearchText(value)}
+                            />
+                        {props.children}
+                        <SearchIconButton hideText={isMobile} onClick={() => onClickSearchButton()}>Search</SearchIconButton>
+                    </div>
+                }
+                {
+                    props.actionsSlot ||
+                    <div className="search-bar-filter-bar-actions">
+                        {props.beforeActionsSlot}
+                        <NewIconButton onClick={() => props.onClickNewButton && props.onClickNewButton() } />
+                        <PrimaryButton onClick={() => setHideFilter(true) } icon={mdiMagnifyRemoveCursor} >
+                            Hide
+                        </PrimaryButton>
+                        {props.afterActionsSlot}
+                    </div>
+                }
             </div>
             || undefined
             }
             {
                 hideFilter &&
+                (props.actionsSlot || 
                 <div className="search-bar-filter-bar-hide">
+                    {props.beforeActionsSlot}
                     <NewIconButton onClick={() => props.onClickNewButton && props.onClickNewButton() } hideText={isMobile}/>
                     <PrimaryButton onClick={() => setHideFilter(false) } icon={mdiMagnifyExpand} hideText={isMobile}>
                         Show Filters
                     </PrimaryButton>
+                    {props.afterActionsSlot}
                 </div>
+                )
             }
             {
                 showPaginatorSection &&

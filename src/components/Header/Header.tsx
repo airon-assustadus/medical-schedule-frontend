@@ -6,7 +6,7 @@ import { mdiMenu } from "@mdi/js";
 import { AppContextActionEnum } from "src/types/context.types";
 
 export function Header() {
-    const {state: {header, menu: {isMenuOpened}}, dispatch} = useAppContext()
+    const {state: {header, menu: {isMenuOpened}, interface: {isMobile}}, dispatch} = useAppContext()
 
     const toggleMenu = () => {
         dispatch && dispatch({
@@ -21,9 +21,11 @@ export function Header() {
                 <h1 className="font-bold">Assustadus Medical Schedule</h1>
                 <h3>{header.pageTitle}</h3>
             </div>
-            <div className={styles['menu-icon-slot']} onClick={() => toggleMenu()}>
-                <Icon path={mdiMenu}/>
-            </div>
+            {isMobile &&
+                <div className={styles['menu-icon-slot']} onClick={() => toggleMenu()}>
+                    <Icon path={mdiMenu}/>
+                </div>
+            }
         </header>
     )
 }

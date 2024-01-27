@@ -6,6 +6,7 @@ export type InputTextProps = {
     id?: string
     name?: string
     className?: string
+    placeholder?: string
 }
 
 export type CheckboxProps = {
