@@ -1,6 +1,5 @@
 import { GridHeaderType } from "src/types/grid.types";
 import styles from './Grid.module.css'
-import { useAppContext } from "../app.provider";
 
 export const GridHeader = (props:GridHeaderType) => {
     let header
@@ -12,7 +11,6 @@ export const GridHeader = (props:GridHeaderType) => {
             const className = `
                 ${column.header?.className || ''}
                 ${cursorPointer}
-                ${column.isActionsHeader && 'pr-3 w-24' || ''}
                 `.trim()
             const headerName = column.isActionsHeader ? 'Actions' : column.header?.name
             return (

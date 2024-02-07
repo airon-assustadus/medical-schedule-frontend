@@ -17,7 +17,7 @@ body > div {
     h-full
     w-full
     mt-1
-    overflow-scroll
+    overflow-auto
 }
 
 @import url(../components/Button/Button.module.css);

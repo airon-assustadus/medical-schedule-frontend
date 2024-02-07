@@ -5,11 +5,22 @@ import { Button } from "./Button";
 
 
 export const PrimaryDarkButton = (props: PrimaryButtonProps) => {
-    const primaryColor = `${props.icon?.color || fullTailwindConfig.theme?.colors && fullTailwindConfig.theme?.colors['primary-dark-text'] || ''}`
-    const icon = props.icon && {
-        ...props.icon,
-        color: primaryColor
-    } || undefined
+    const primaryColor = `${props.icon 
+        && typeof props.icon == 'object' && props.icon?.color || fullTailwindConfig.theme?.colors && fullTailwindConfig.theme?.colors['primary-dark-text'] || ''}`
+        const icon = (props.icon 
+            && typeof props.icon == 'object' 
+            && {
+            ...props.icon,
+            color: primaryColor
+        }
+         ) || (props.icon 
+        && typeof props.icon == 'string' 
+        && {
+            path: props.icon,
+            color: primaryColor
+        }) || undefined
+
+
     return (
         <Button {...props} icon={icon} className="button-primary-dark"/>
     )

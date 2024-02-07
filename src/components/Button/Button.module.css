@@ -44,3 +44,7 @@
 .button-primary:hover .button-icon path{
     @apply !fill-primary-dark-text
 }
+
+.button-primary-dark:hover .button-icon path{
+    @apply !fill-primary-text
+}

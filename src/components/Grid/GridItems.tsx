@@ -18,10 +18,8 @@ export const GridItems = (props: GridType) => {
                 )
             }
         )
-    } else {
-        items = (
-            <div className="font-bold">{props.noDataMessage || 'No data found'}</div>
-        )
+        items = 
+            <tbody>{items}</tbody>
     }
     return (items)
 }

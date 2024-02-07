@@ -16,7 +16,7 @@ export const Grid = (props:GridType) => {
     `
 
     const noDataDiv = 
-        (!props.items || !props.columns)
+        (!props.items || (!props.columns && !props.hideHeader))
         &&
         (
             <ContainerBordered className={className}>
@@ -38,7 +38,7 @@ export const Grid = (props:GridType) => {
             (isMobile && 
                 <GridMobile {...props} />
             ) ||
-        <table className={className}>
+        <table className={className} border={1}>
             <GridHeader columns={props.columns} gridHeaderClassName={props.gridHeaderClassName}/>
             <GridItems {...props}/>
         </table>

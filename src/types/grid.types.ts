@@ -23,11 +23,23 @@ export type GridColumnType = {
 export type GridItemsType = {
     items?: any[]
     columns?: GridColumnType[]
+    onRowClick?: (value:any, index:number) => void
+    onEditClick?: (value:any) => void
+    onDeleteClick?: (value:any) => void
+}
+
+export type GridLineType = {
+    item: any
+    columns?: GridColumnType[]
+    onRowClick?: (value:any, index:number) => void
+    onEditClick?: (value:any) => void
+    onDeleteClick?: (value:any) => void
 }
 
 export type GridType = {
     items?: any[]
     columns: GridColumnType[]
+    hideHeader?: boolean
     onEditClick?: (value:any) => void
     onDeleteClick?: (value:any) => void
     onRowClick?: (value:any, index:number) => void

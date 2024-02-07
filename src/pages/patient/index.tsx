@@ -33,32 +33,32 @@ const patientColumns: GridColumnType[] = [
     {
         header: {
             name: '#',
-            className: 'sm:w-10 sm:pl-2'
+            // className: 'sm:w-10 sm:pl-2'
         },
         item: {
             field: 'id',
-            className: 'sm:w-10 sm:justify-center'
+            // className: 'sm:w-10 sm:justify-center'
         }
     },
     {
         header: {
             name: 'Name',
-            className: 'sm:w-full'
+            // className: 'sm:w-full'
         },
         item: {
             field: 'name',
-            className: 'sm:w-full'
+            // className: 'sm:w-full'
         }
     },
     {
         header: {
             name: 'Active',
             type: 'boolean',
-            className: 'sm:w-24'
+            // className: 'sm:w-24'
         },
         item: {
             field: 'active',
-            className: 'sm:justify-center sm:w-24'
+            // className: 'sm:justify-center sm:w-24'
         }
     },
     {

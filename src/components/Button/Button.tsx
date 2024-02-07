@@ -1,14 +1,20 @@
 import Icon from "@mdi/react";
 import { PrimaryButtonProps } from "src/types/button.types";
+import { IconProps } from "src/types/icon.types";
 
 
 export const Button = (props: PrimaryButtonProps) => {
+
+    const path = (props.icon as IconProps)?.path || (props.icon as string)
+    const size = (props.icon as IconProps)?.size
+    const color = (props.icon as IconProps)?.color
+
     const icon =
         !props.hideIcon
         && props.icon
-        && <Icon path={props.icon.path} className="button-icon"
-            size={props.icon.size || 1}
-            color={props.icon.color} /> || undefined
+        && <Icon path={path} className="button-icon"
+            size={size || 1}
+            color={color} /> || undefined
     const label = 
         !props.hideText 
         && props.children 

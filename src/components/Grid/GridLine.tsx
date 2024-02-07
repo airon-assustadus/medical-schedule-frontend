@@ -1,7 +1,7 @@
 import { GridLineType } from "src/types/grid.types";
 import { PrimaryButton } from "../Button/PrimaryButton";
-import styles from './Grid.module.css'
 import { TrueFalseIcon } from "../Input/TrueFalseIcon";
+import styles from './Grid.module.css';
 
 
 export const GridLine = (props: GridLineType) => {
@@ -17,12 +17,12 @@ export const GridLine = (props: GridLineType) => {
         let cells = props.columns.map(
             (column, index) => {
                 const className = `
-                ${styles['grid-line-cell']}
+                grid-line-cell
                 ${column.item?.className || ''}
                 `.trim()
                 if (column.isActionsHeader) {
                     return (
-                        <div
+                        <td
                             className="w-24 pr-3"
                             key={index}>
                             <PrimaryButton
@@ -40,7 +40,7 @@ export const GridLine = (props: GridLineType) => {
                                 className="mt-2">
                                 Delete
                             </PrimaryButton>
-                        </div>
+                        </td>
                     )
                 } 
                 if (!column.item || !column.item.field) {
@@ -49,27 +49,29 @@ export const GridLine = (props: GridLineType) => {
                 const itemField = column.item.field
                 if (column.header?.type == 'boolean') {
                     return (
-                        <div
-                            className={className}
+                        <td
+                            className={`${className} text-center`}
                             key={index}>
                             <TrueFalseIcon key={index} value={props.item[itemField]} />
-                        </div>
+                        </td>
                     )
                 }
                 return (
-                    <div onClick={() => props.onRowClick && props.onRowClick(props.item, index)}
+                    <td onClick={() => props.onRowClick && props.onRowClick(props.item, index)}
                         className={className}
                         key={index}
                     >
-                        {props.item[itemField]}
-                    </div>
+                        <div>
+                            {props.item[itemField]}
+                        </div>
+                    </td>
                 )
             }
         )
         line = (
-            <div className={lineClassName}>
+            <tr className={lineClassName}>
                 {cells}
-            </div>
+            </tr>
         )
     }
     return line
