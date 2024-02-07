@@ -12,6 +12,7 @@ export type GridColumnItemType = {
     children?: any
     onClick?: Function
     className?: string
+    showDataSlot?: (column: GridColumnItemType, item:any) => JSX.Element
 }
 
 export type GridColumnType = {

@@ -9,11 +9,11 @@ export const Checkbox = (props:CheckboxProps) => {
     const result = !props.value ?
     <div 
         onClick={() => props.onChange && props.onChange(!props.value)} 
-        className={`${styles['checkbox-unchecked']} ${props.className || ''}`}></div>
+        className={`${styles['checkbox']} ${props.className || ''}`}></div>
     :
     <div 
         onClick={() => props.onChange && props.onChange(!props.value)} 
-        className={`${styles['checkbox-checked']} ${props.className || ''}`}>
+        className={`${styles['checkbox']} ${props.className || ''}`}>
         <Icon 
             path={mdiCheck}
             size={1}

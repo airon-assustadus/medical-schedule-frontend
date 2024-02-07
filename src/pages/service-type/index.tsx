@@ -1,65 +1,57 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { Grid } from "src/components/Grid/Grid";
-import { SearchBar } from "src/components/Container/SearchBar";
+import { PageList } from "src/components/Container";
 import { useAppContext } from "src/components/app.provider";
-import { PatientModel } from "src/models/Patient.model";
+import { ServiceTypeModel } from "src/models/ServiceType.model";
+import { PageListType, PaginatorType } from "src/types/container.types";
 import { AppContextActionEnum } from "src/types/context.types";
 import { GridColumnType, GridType } from "src/types/grid.types";
-import { PageListType, PaginatorType } from "src/types/container.types";
 import { SearchBarClickSearchButton, SearchBarProps } from "src/types/searchbar.types";
-import { PageList } from "src/components/Container";
 
 
-const patientsList: PatientModel[] = [
+const itemList: ServiceTypeModel[] = [
     {
         id: 1,
-        name: 'SomeOne',
+        name: 'Behavior Therapy',
         active: true
     },
     {
         id: 2,
-        name: 'SomeOne 2',
-        active: false
+        name: 'Massage Therapy',
+        active: true
     },
     {
         id: 3,
-        name: 'Someone 3',
-        active: true
+        name: 'Psycho Therapy',
+        active: false
     }
 ]
 
-const patientColumns: GridColumnType[] = [
+const columns: GridColumnType[] = [
     {
         header: {
             name: '#',
-            // className: 'sm:w-10 sm:pl-2'
         },
         item: {
             field: 'id',
-            // className: 'sm:w-10 sm:justify-center'
         }
     },
     {
         header: {
             name: 'Name',
-            // className: 'sm:w-full'
         },
         item: {
             field: 'name',
-            // className: 'sm:w-full'
         }
     },
     {
         header: {
             name: 'Active',
             type: 'boolean',
-            // className: 'sm:w-24'
         },
         item: {
             field: 'active',
-            // className: 'sm:justify-center sm:w-24'
         }
     },
     {
@@ -67,14 +59,12 @@ const patientColumns: GridColumnType[] = [
     },
 ]
 
-const noDataMessage = 'No Data found'
-
-const Patient: NextPage = () => {
+const ServiceType: NextPage = () => {
 
     const router = useRouter()
 
     const [searchText, setSearchText] = useState('');
-    const [patients, setPatients] = useState<PatientModel[]>(patientsList);
+    const [items, setItems] = useState<ServiceTypeModel[]>(itemList);
 
     const { dispatch: dispatchContext } = useAppContext()
 
@@ -95,11 +85,11 @@ const Patient: NextPage = () => {
         dispatchContext && dispatchContext({
             type: AppContextActionEnum.PAGE_TITLE_AND_MENU,
             value: {
-                to: '/patient',
-                pageTitle: 'New Patient'
+                to: '/service-type',
+                pageTitle: 'New Service Type'
             }
         })
-        router.push('/patient/new')
+        router.push('/service-type/new')
     }
 
     const [paginator, setPaginator] = useState<PaginatorType>({
@@ -108,12 +98,11 @@ const Patient: NextPage = () => {
     })
 
     const [gridType, setGridType] = useState<GridType>({
-        items: patients,
-        columns: patientColumns,
+        items: items,
+        columns,
         onEditClick,
         onDeleteClick,
         onRowClick,
-        noDataMessage,
         isLoading: false
     })
 
@@ -130,7 +119,7 @@ const Patient: NextPage = () => {
     const pageListProps:PageListType = {
         gridProps: gridType,
         searchBarProps,
-        title: "Patients"        
+        title: "Service Types"        
     }
 
     return (
@@ -138,4 +127,4 @@ const Patient: NextPage = () => {
     );
 }
 
-export default Patient;
+export default ServiceType;

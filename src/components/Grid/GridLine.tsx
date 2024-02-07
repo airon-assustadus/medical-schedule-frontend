@@ -43,29 +43,35 @@ export const GridLine = (props: GridLineType) => {
                         </td>
                     )
                 } 
-                if (!column.item || !column.item.field) {
+                if (!column.item || (!column.item.field && !column.item.children && !column.item.showDataSlot)) {
                     return <></>
                 }
-                const itemField = column.item.field
-                if (column.header?.type == 'boolean') {
+                if (!column.item.field) {
+                    const itemField = column.item.field || ''
+                    if (column.header?.type == 'boolean') {
+                        return (
+                            <td
+                                className={`${className} text-center`}
+                                key={index}>
+                                <TrueFalseIcon key={index} value={props.item[itemField]} />
+                            </td>
+                        )
+                    }
                     return (
-                        <td
-                            className={`${className} text-center`}
-                            key={index}>
-                            <TrueFalseIcon key={index} value={props.item[itemField]} />
+                        <td onClick={() => props.onRowClick && props.onRowClick(props.item, index)}
+                            className={className}
+                            key={index}
+                        >
+                            <div>
+                                {props.item[itemField]}
+                            </div>
                         </td>
                     )
+                } else if (!column.item.children) {
+                    return column.item.children
+                } else {
+                    return column.item.showDataSlot && column.item.showDataSlot(column.item, props.item) || undefined;
                 }
-                return (
-                    <td onClick={() => props.onRowClick && props.onRowClick(props.item, index)}
-                        className={className}
-                        key={index}
-                    >
-                        <div>
-                            {props.item[itemField]}
-                        </div>
-                    </td>
-                )
             }
         )
         line = (

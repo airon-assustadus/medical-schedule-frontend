@@ -1,7 +1,7 @@
-.checkbox-checked {
-    @apply w-5 h-5 hover:bg-primary
+.checkbox {
+    @apply w-6 h-6 border border-primary-dark hover:bg-primary rounded-md
 }
 
-.checkbox-unchecked {
-    @apply w-5 h-5 border-primary-dark hover:bg-primary border rounded-md
+.checkbox > svg {
+    @apply ml-[-1px]
 }

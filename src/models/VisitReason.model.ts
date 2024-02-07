@@ -1,5 +1,9 @@
-export type VisitReason = {
-    id:number,
+import { ServiceTypeModel } from "./ServiceType.model"
+
+export type VisitReasonModel = {
+    id: number,
     name: string,
-    active: boolean
+    active: boolean,
+    serviceTypeId: number,
+    serviceType?: ServiceTypeModel
 }

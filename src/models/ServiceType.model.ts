@@ -1,4 +1,4 @@
-export type ServiceType = {
+export type ServiceTypeModel = {
     id:number,
     name: string,
     active: boolean

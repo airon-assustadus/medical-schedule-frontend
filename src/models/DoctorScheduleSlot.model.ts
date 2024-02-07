@@ -1,22 +1,22 @@
-import { DoctorSchedule } from "./DoctorSchedule.model"
+import { DoctorScheduleModel } from "./DoctorSchedule.model"
 import { PatientModel } from "./Patient.model"
-import { ServiceLocation } from "./ServiceLocation.model"
-import { ServiceType } from "./ServiceType.model"
-import { VisitReason } from "./VisitReason.model"
+import { ServiceLocationModel } from "./ServiceLocation.model"
+import { ServiceTypeModel } from "./ServiceType.model"
+import { VisitReasonModel } from "./VisitReason.model"
 
-export type DoctorScheduleSlot = {
+export type DoctorScheduleSlotModel = {
     id: number
-    doctorSchedule: DoctorSchedule
+    doctorSchedule: DoctorScheduleModel
     doctorScheduleId: number
     startTime: Date | string
     endTime: Date | string
     patient: PatientModel
     patientId: number
-    visitReason: VisitReason
+    visitReason: VisitReasonModel
     visitReasonId: number
-    serviceLocation: ServiceLocation
+    serviceLocation: ServiceLocationModel
     serviceLocationId: number
-    ServiceTypes: ServiceType[]
+    ServiceTypes: ServiceTypeModel[]
 }
 
 export type AvailableSlotsRequest = {

@@ -14,18 +14,18 @@ export const defaultMenus: MenuItemProps[] = [
     },
     {
         isSelected: false,
-        label: 'Service Location',
-        to: '/ServiceLocation'
-    },
-    {
-        isSelected: false,
         label: 'Service Type',
-        to: '/ServiceType'
+        to: '/service-type'
     },
     {
         isSelected: false,
         label: 'Visit Reason',
-        to: '/VisitReason'
+        to: '/visit-reason'
+    },
+    {
+        isSelected: false,
+        label: 'Service Location',
+        to: '/ServiceLocation'
     },
     {
         isSelected: false,

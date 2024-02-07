@@ -10,7 +10,7 @@ import { PageFormType } from "src/types/container.types";
 import { AppContextActionEnum } from "src/types/context.types";
 
 
-const Patient: NextPage = () => {
+const VisitReasonFormPage: NextPage = () => {
 
     const router = useRouter();
 
@@ -26,11 +26,11 @@ const Patient: NextPage = () => {
         dispatchContext && dispatchContext({
             type: AppContextActionEnum.PAGE_TITLE_AND_MENU,
             value: {
-                to: '/patient',
-                pageTitle: 'Patients'
+                to: '/service-type',
+                pageTitle: 'Service Types'
             }
         })
-        router.push('/patient')
+        router.push('/service-type')
     }
 
     const saveClick = () => {
@@ -38,11 +38,11 @@ const Patient: NextPage = () => {
             name,
             active
         }
-        console.log('patient', patient)
+        console.log('service-type', patient)
     }
 
     const pageFormProps:PageFormType = {
-        title: 'new' !== id ? 'Editing Patient ID: ' + id : 'New Patient',
+        title: 'new' !== id ? 'Editing Service Type ID: ' + id : 'New Service Type',
         cancelClick,
         saveClick
     }
@@ -68,4 +68,4 @@ const Patient: NextPage = () => {
     );
 }
 
-export default Patient;
+export default VisitReasonFormPage;

@@ -20,6 +20,13 @@ body > div {
     overflow-auto
 }
 
+.row {
+    @apply flex
+    flex-row
+    flex-wrap
+    w-full
+}
+
 @import url(../components/Button/Button.module.css);
 @import url(../components/Container/Container.module.css);
 @import url(../components/Grid/Grid.module.css);
